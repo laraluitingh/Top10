@@ -4,15 +4,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+public class MainActivity extends AppCompatActivity  {
 
-public class MainActivity extends AppCompatActivity implements RAdapter.OnClickListener {
+    private boolean mTwoPane;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //the if statement will help program identify whether the device is a phone or a tablet by determining whether the screen has a detail container
+
+        if (findViewById(R.id.detail_container) != null) {
+            mTwoPane = true;
+        }
+
+
+        // setting up the recycler view
+        RecyclerView mRecyclerView = findViewById(R.id.rvRest);
+        mRecyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        //get TopTen restaurant data by calling the getRest() method
+        RecyclerView.Adapter mAdapter = new RAdapter(this, TopTen.getRest(), mTwoPane);
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
 
     /*
     private RecyclerView recyclerView;
@@ -21,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements RAdapter.OnClickL
 
      */
 
+    /*
     ArrayList<TopTen> rest;
 
     private static final String TAG = "MainActivity";
@@ -54,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements RAdapter.OnClickL
 
 
 
-
+/*
 
     }
 
@@ -63,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements RAdapter.OnClickL
 
 
     //called when the user click launch button
+
+ */
+    /*
     private void launchApp(){
 
         RecyclerView rvCoin=(RecyclerView) findViewById(R.id.rvRest);
@@ -86,4 +110,6 @@ public class MainActivity extends AppCompatActivity implements RAdapter.OnClickL
         intent.putExtra("value1", rest.get(position));
         startActivity(intent);
     }
+
+     */
 }

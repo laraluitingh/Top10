@@ -7,8 +7,8 @@
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="161dp">
+        android:layout_width="426dp"
+        android:layout_height="181dp">
 
         <TextView
             android:id="@+id/rName"

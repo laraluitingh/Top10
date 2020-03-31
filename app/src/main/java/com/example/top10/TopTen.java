@@ -11,6 +11,9 @@ public class TopTen implements Serializable {
     private double rating;
     private String pic;
 
+    public TopTen(){
+
+    }
 
     public TopTen(String name, String address, String cusineType, double rating, String pic) {
         this.name = name;
@@ -62,6 +65,13 @@ public class TopTen implements Serializable {
         this.pic = pic;
     }
 
+    @Override
+    public String toString() {
+        return Address;
+    }
+
+    //setting up TopTen data
+
     public static ArrayList<TopTen> getRest(){
         ArrayList<TopTen> rest=new ArrayList();
         rest.add(new TopTen("Quay", "Upper Overseas Passenger Terminal, The Rocks NSW 2000", "Modern Australian", 4.5, "quay_p" ));
@@ -77,6 +87,8 @@ public class TopTen implements Serializable {
 
         return rest;
     }
+
+    //finding specific restaurant by determining which string is the same as the restaurant name and then returning the specific object
 
 public static TopTen pick(String nameR){
         for(TopTen t: getRest()){

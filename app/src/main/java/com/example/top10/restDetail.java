@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+//class not relevant
 public class restDetail extends AppCompatActivity {
 
     private static final String TAG = "RestDetail2";

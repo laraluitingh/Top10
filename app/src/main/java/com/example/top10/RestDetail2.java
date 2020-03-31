@@ -12,6 +12,24 @@ import android.widget.TextView;
 
 public class RestDetail2 extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rest_detail2);
+
+        if (savedInstanceState == null) {
+            Bundle arguments = new Bundle();
+            arguments.putString(rest_detail.ARG_ITEM_ID, getIntent().getStringExtra(rest_detail.ARG_ITEM_ID));
+            rest_detail fragment = new rest_detail();
+            fragment.setArguments(arguments);
+
+            //Initialising fragment in the detailContainer
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.detail_container, fragment)
+                    .commit();
+        }
+    }
+     /*
     private static final String TAG = "activity_rest_detail2";
     private ImageView photo;
     @Override
@@ -63,4 +81,6 @@ public class RestDetail2 extends AppCompatActivity {
         startActivity(mapIntent);
 
     }
+
+      */
 }
